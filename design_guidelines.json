@@ -1,0 +1,93 @@
+{
+  "theme": "dark",
+  "archetype": "Archetype 4 (Swiss & High-Contrast) + Terminal Retro-Futurism",
+  "color_palette": {
+    "background": "#050505",
+    "surface": "#121212",
+    "surface_hover": "#1A1A1A",
+    "border": "rgba(255, 255, 255, 0.12)",
+    "primary": "#FFB300",
+    "primary_hover": "#FFC107",
+    "secondary": "#00E5FF",
+    "text": {
+      "main": "#F8F9FA",
+      "muted": "#A1A1AA",
+      "inverse": "#050505"
+    },
+    "status": {
+      "success": "#00E5FF",
+      "error": "#FF3B30",
+      "warning": "#FFB300",
+      "inactive": "#3F3F46"
+    }
+  },
+  "typography": {
+    "heading_font": "Outfit",
+    "body_font": "Manrope",
+    "mono_font": "JetBrains Mono",
+    "hierarchy": {
+      "h1": "text-4xl sm:text-5xl tracking-tighter font-medium",
+      "h2": "text-2xl sm:text-3xl tracking-tight font-medium",
+      "h3": "text-xl sm:text-2xl tracking-tight font-medium",
+      "h4": "text-xs tracking-[0.2em] uppercase text-[#A1A1AA] font-mono font-semibold",
+      "body": "text-base leading-relaxed text-[#F8F9FA]",
+      "small": "text-sm text-[#A1A1AA]",
+      "data": "text-3xl font-mono font-medium tracking-tight text-[#00E5FF]"
+    }
+  },
+  "layout": {
+    "strategy": "Control Room Grid",
+    "spacing": "gap-4 md:gap-6",
+    "padding": "p-4 md:p-6 lg:p-8",
+    "container": "w-full max-w-[1600px] mx-auto",
+    "grid_structure": "grid grid-cols-1 lg:grid-cols-12",
+    "sections": {
+      "header": "col-span-full flex justify-between items-end border-b border-white/10 pb-4 mb-6",
+      "video_feed": "col-span-1 lg:col-span-7 flex flex-col gap-4",
+      "devices_panel": "col-span-1 lg:col-span-5 flex flex-col gap-4",
+      "activity_feed": "col-span-1 lg:col-span-7 h-64 overflow-y-auto border border-white/10 bg-[#0A0A0A] p-4",
+      "legend": "col-span-1 lg:col-span-5 grid grid-cols-2 md:grid-cols-3 gap-2",
+      "info_section": "col-span-full border border-white/10 bg-[#121212] p-6 lg:p-8 mt-4 grid grid-cols-1 md:grid-cols-2 gap-8"
+    }
+  },
+  "surfaces": {
+    "glass_panel": "bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.12)]",
+    "solid_card": "bg-[#121212] border border-white/10 rounded-none",
+    "active_card": "bg-[#1A1A1A] border border-[#FFB300]/50 shadow-[0_0_15px_rgba(255,179,0,0.1)] rounded-none",
+    "focused_device_indicator": "absolute top-0 left-0 w-1 h-full bg-[#00E5FF]",
+    "hud_video_container": "relative w-full aspect-video bg-black border border-white/15 overflow-hidden flex items-center justify-center",
+    "hud_overlay_corners": "absolute w-4 h-4 border-[#00E5FF]/70 pointer-events-none"
+  },
+  "components": {
+    "buttons": "rounded-none font-medium px-4 py-2 transition-all duration-200. Primary: bg-[#FFB300] text-black hover:bg-[#FFC107]. Secondary: border border-white/20 hover:border-white/40 bg-transparent text-white.",
+    "badges": "rounded-sm font-mono text-xs uppercase px-2 py-1 bg-white/10 border border-white/20 text-white inline-flex items-center gap-1",
+    "active_badges": "rounded-sm font-mono text-xs uppercase px-2 py-1 bg-[#00E5FF]/20 border border-[#00E5FF]/50 text-[#00E5FF] inline-flex items-center gap-1",
+    "sliders": "Use Shadcn slider. Override track to bg-[#3F3F46] and active range/thumb to bg-[#00E5FF].",
+    "switches": "Use Shadcn switch. Override rounded-full to rounded-sm. Active state bg-[#FFB300].",
+    "terminal_log": "font-mono text-sm border-b border-white/5 py-2 flex items-start gap-3",
+    "gesture_card": "bg-[#121212] border border-white/10 p-3 flex flex-col items-center justify-center gap-2 text-center"
+  },
+  "motion": {
+    "hover": "transition-all duration-200 ease-out",
+    "active": "active:scale-[0.98]",
+    "card_toggle": "transition-colors duration-300 ease-in-out",
+    "feed_enter": "animate-in fade-in slide-in-from-bottom-2 duration-300"
+  },
+  "icons": {
+    "library": "lucide-react",
+    "usage": "Use strokeWidth={1.5}. For active states, use strokeWidth={2} and color them with #FFB300 or #00E5FF."
+  },
+  "image_urls": {},
+  "instructions_to_main_agent": [
+    "Install Google Fonts in global CSS or index.html: Outfit (Headings), Manrope (Body), JetBrains Mono (Data/Code).",
+    "Install `lucide-react` for icons.",
+    "Do NOT use `border-radius` (rounded corners) extensively. Use `rounded-none` or `rounded-sm` for an industrial, precise control-room aesthetic.",
+    "Webcam Feed: Implement the MediaPipe integration within a robust HUD container (styled with corner brackets and crosshairs to look like a targeting system/HUD). Overlay the real-time gesture name and confidence score on this feed using large JetBrains Mono text.",
+    "Device Control Panel: Build rectangular, flat cards for Living Room Light, Bedroom Light, and Ceiling Fan. When a device is 'focused' (selected via gesture), highlight it with a left border (`border-l-4`) or background tint using the secondary color (#00E5FF).",
+    "Gesture Legend: Map out Open Palm (ON), Fist (OFF), Thumbs Up (Up), Thumbs Down (Down), Peace (Next), Point (Select) using small grid cards.",
+    "Activity Feed: Style as a scrolling terminal log. Use a monospace font, showing timestamp (e.g., [14:32:01]) and the detected action (e.g., COMMAND_LIVING_ROOM_ON).",
+    "Status Indicators: Place at the top right of the dashboard. Use small dots (green/amber) and mono text (e.g., CAMERA: ONLINE).",
+    "Ensure the UI meets accessibility standards. The dark theme (#050505) with white (#F8F9FA) text has high contrast. Use the primary yellow (#FFB300) for high-alert interactions or active states.",
+    "All interactive and key informational elements MUST include a `data-testid` attribute to facilitate robust automated testing (e.g., data-testid='device-card-living-light')."
+  ]
+}
